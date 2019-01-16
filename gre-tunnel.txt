@@ -1,0 +1,14 @@
+set board-type slot slot-id tunnel
+system-view
+interface loopback interface-number
+ip address ip-address { mask | mask-length }
+target-board slot-number
+binding tunnel gre
+
+system-view
+interface tunnel interface-number
+tunnel-protocol gre
+ip address unnumbered interfaceinterface-type interface-number
+source { source-ip-address | loopback interface-number }
+destination [ vpn-instance vpn-instance-name ] ip-address
+ip route-static dest-ip-address { mask | mask-length } tunnel interface-number 
